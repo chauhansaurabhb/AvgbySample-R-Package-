@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Compute Avg. or Mean by Sample Size. Takes data column and samplesize as input and computes the avg or mean by samplesize as output dataframe.\n#' @param data numeric\n#' @param samplesize numeric\n#' @return dataframe of avg or mean values by samplesize.\n#' @examples\n#' avgbysample(c(1,3,5,9),2)\n#' avgbysample(c(1,3,5,9,10,15,19,18),4)\n#' avgbysample(iris$Sepal.Length,5)\n#' @export\n\n\n# Call the avg_by function by passing the data column and sample value and convert\n# output as data frame\n# The following function computes an average of a data column by user specified samples i.e\n# avg by 5 samples, avg by 10 samples etc.\navgbysample<-function (data,samplesize){\n  d=c()\n  avg=c()\n  for(i in 1:length(data)){\n    if(i%%samplesize==0){\n      d=c(d,data[i])\n      avg=c(avg,mean(d))\n      d=c()\n    }else{\n      d=c(d,data[i])\n    }\n  }\n  avg=as.data.frame(avg)\n  colnames(avg)='Avg values'\n  return (avg)\n}\n\n\n\n",
+    "created" : 1516344000211.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2045806661",
+    "id" : "6AC5B62D",
+    "lastKnownWriteTime" : 1516352294,
+    "last_content_update" : 1516352294397,
+    "path" : "~/AvgbySample/R/avgbysample.R",
+    "project_path" : "R/avgbysample.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
